@@ -12,7 +12,12 @@ export default function HeaderTop() {
   ]);
 
   React.useEffect(() => {
-    randomEngine({setHighlight});
+    const [intrvl, intvArr, timeOutArr] = randomEngine({setHighlight});
+    return () => {
+      clearInterval(intrvl);
+      intvArr.map((val) => clearInterval(val));
+      timeOutArr.map((val) => clearTimeout(val));
+    };
   }, []);
 
   return (

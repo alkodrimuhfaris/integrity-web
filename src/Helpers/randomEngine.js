@@ -7,6 +7,7 @@ const formerH = [
 
 export default ({setHighlight = () => {}}) => {
   const intvArr = [null, null, null, null];
+  const timeOutArr = [null, null, null];
   for (let idx = 0; idx < intvArr.length; idx++) {
     intvArr[idx] = setInterval(() => {
       const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -16,7 +17,7 @@ export default ({setHighlight = () => {}}) => {
         return y;
       });
     }, 0.05 * 1000);
-    setTimeout(() => {
+    timeOutArr[0] = setTimeout(() => {
       clearInterval(intvArr[idx]);
       intvArr[idx] = setInterval(() => {
         const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -27,7 +28,7 @@ export default ({setHighlight = () => {}}) => {
         });
       }, 0.075 * 1000);
     }, (idx + 1) * 1000);
-    setTimeout(() => {
+    timeOutArr[1] = setTimeout(() => {
       clearInterval(intvArr[idx]);
       intvArr[idx] = setInterval(() => {
         const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -38,7 +39,7 @@ export default ({setHighlight = () => {}}) => {
         });
       }, 0.1 * 1000);
     }, (idx + 2) * 1000);
-    setTimeout(() => {
+    timeOutArr[2] = setTimeout(() => {
       clearInterval(intvArr[idx]);
       setHighlight((x) => {
         const y = x.map((val) => ({...val}));
@@ -47,8 +48,9 @@ export default ({setHighlight = () => {}}) => {
       });
     }, (idx + 3) * 1000);
   }
-  setInterval(() => {
+  const intrvl = setInterval(() => {
     intvArr.map((val) => clearInterval(val));
+    timeOutArr.map((val) => clearTimeout(val));
     for (let idx = 0; idx < intvArr.length; idx++) {
       intvArr[idx] = setInterval(() => {
         const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -58,7 +60,7 @@ export default ({setHighlight = () => {}}) => {
           return y;
         });
       }, 0.05 * 1000);
-      setTimeout(() => {
+      timeOutArr[0] = setTimeout(() => {
         clearInterval(intvArr[idx]);
         intvArr[idx] = setInterval(() => {
           const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -69,7 +71,7 @@ export default ({setHighlight = () => {}}) => {
           });
         }, 0.075 * 1000);
       }, (idx + 1) * 1000);
-      setTimeout(() => {
+      timeOutArr[1] = setTimeout(() => {
         clearInterval(intvArr[idx]);
         intvArr[idx] = setInterval(() => {
           const rdm = `${Math.floor(Math.random() * 100)}`;
@@ -80,7 +82,7 @@ export default ({setHighlight = () => {}}) => {
           });
         }, 0.1 * 1000);
       }, (idx + 2) * 1000);
-      setTimeout(() => {
+      timeOutArr[2] = setTimeout(() => {
         clearInterval(intvArr[idx]);
         setHighlight((x) => {
           const y = x.map((val) => ({...val}));
@@ -90,4 +92,5 @@ export default ({setHighlight = () => {}}) => {
       }, (idx + 3) * 1000);
     }
   }, 30 * 1000);
+  return [intrvl, intvArr, timeOutArr];
 };
