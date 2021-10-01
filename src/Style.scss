@@ -157,11 +157,14 @@ body:not(.modal-open) {
       justify-content: center;
       color: #fff;
       & .number {
+        width: 30%;
+        text-align: end;
         margin-right: 1rem;
         font-weight: 800;
         font-size: 3.5rem;
       }
       & .words {
+        width: calc(70% - 1rem);
         & .top {
           margin-bottom: 0.25rem;
         }
@@ -375,9 +378,9 @@ body:not(.modal-open) {
     justify-content: space-around;
     & .client-icons {
       width: auto;
-      height :calc((617 / 1920) * (100vw - 10px) * 0.25);
+      height: calc((617 / 1920) * (100vw - 10px) * 0.25);
       &.bottom {
-        height :calc((617 / 1920) * (100vw - 10px) * 0.15);
+        height: calc((617 / 1920) * (100vw - 10px) * 0.15);
       }
       margin: 2rem 1rem 0 1rem;
       &:nth-child(7) {

@@ -9,11 +9,11 @@ import OurTeam from './Layout/OurTeam/OurTeam';
 import ValuableClient from './Layout/ValuableClient/ValuableClient';
 
 export default function Main() {
-  const {hash} = useLocation();
+  const {_hash} = useLocation();
 
-  React.useEffect(() => {
-    console.log(hash);
-  }, [hash]);
+  // React.useEffect(() => {
+  //   console.log(hash);
+  // }, [hash]);
 
   return (
     <div className="parent">
