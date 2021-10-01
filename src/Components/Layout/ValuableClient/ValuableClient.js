@@ -1,6 +1,8 @@
 import React from 'react';
+import scrollToElement from '../../../Helpers/scrollToElement';
 
 export default function ValuableClient() {
+  const {refScroll} = scrollToElement({hashElement: '#client'});
   const client1 = [
     {src: '/assets/client/01-APBS.svg', company: 'APBS'},
     {src: '/assets/client/02-Timur-Bahari.svg', company: 'Timur-Bahari'},
@@ -16,7 +18,7 @@ export default function ValuableClient() {
     {src: '/assets/client/07-TSS.svg', company: 'TSS'},
   ];
   return (
-    <div className="valuable-client">
+    <div ref={refScroll} className="valuable-client pt-2">
       <div className="valuable-container py-5">
         <div className="container">
           <div className="title">

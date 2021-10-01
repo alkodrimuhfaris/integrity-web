@@ -140,7 +140,7 @@ body:not(.modal-open) {
 }
 
 .header-top {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   .header-top-img {
     width: 100%;
     height: 30rem;
@@ -178,7 +178,7 @@ body:not(.modal-open) {
 }
 
 .our-service {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   & .service-slider {
     margin: 0.75rem 0rem 1rem 0rem;
     & .container-slider {
@@ -256,10 +256,18 @@ body:not(.modal-open) {
                 background-color: #525252;
                 display: flex;
                 align-items: center;
+                transition: 0.3s ease;
                 span {
                   color: #fff;
                   font-weight: 700;
                   font-size: 1rem;
+                }
+                &:hover {
+                  transition: 0.3s ease;
+                  background-color: #f7f7f7;
+                  span {
+                    color: #525252;
+                  }
                 }
               }
             }
@@ -278,7 +286,7 @@ body:not(.modal-open) {
 }
 
 .our-company {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   & .typograph {
     z-index: 50;
     top: 12.5%;
@@ -304,7 +312,7 @@ body:not(.modal-open) {
 }
 
 .our-team {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   & .team-profile {
     width: 100%;
     display: flex;

@@ -1,10 +1,13 @@
 import React from 'react';
+import scrollToElement from '../../../Helpers/scrollToElement';
 import SvgIcon from '../../ComponentLayout/SvgIcon';
 import Title from '../../ComponentLayout/Title';
 
 export default function OurCompany() {
+  const {refScroll} = scrollToElement({hashElement: '#about-us'});
+
   return (
-    <div className="our-company">
+    <div ref={refScroll} className="our-company pt-2">
       <Title title="Company" />
       <div className="container">
         <div className="row position-relative">

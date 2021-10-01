@@ -3,10 +3,12 @@ import {FaPhoneAlt} from 'react-icons/fa';
 import {MdPhoneAndroid} from 'react-icons/md';
 import {IoMail} from 'react-icons/io5';
 import SvgIcon from '../../ComponentLayout/SvgIcon';
+import scrollToElement from '../../../Helpers/scrollToElement';
 
 export default function Footer() {
+  const {refScroll} = scrollToElement({hashElement: '#contact'});
   return (
-    <div className="footer">
+    <div ref={refScroll} className="footer">
       <div className="container mb-4">
         <SvgIcon src="/assets/logo/Logo.svg" className={['logo-footer']} />
         <div className="row address-container mb-3">
@@ -21,7 +23,7 @@ export default function Footer() {
           <div className="col-md-6 col-12 address">
             <h3>Workshop</h3>
             <p>
-              Psanggarahan Building
+              Pesanggarahan Building
               <br />
               Jl Lebak Bulus 3 No.50 Ruang 101 & 103
             </p>
