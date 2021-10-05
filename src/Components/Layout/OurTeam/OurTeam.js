@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from '../../ComponentLayout/Title';
+import OurTeamCard from './OurTeamCard';
 
 export default function OurTeam() {
   const teamData = [
@@ -26,21 +27,7 @@ export default function OurTeam() {
       <div className="container">
         <div className="team-profile">
           {teamData.map((val, idx) => (
-            <div key={idx} className="card-wrapper">
-              <div className="profile-card">
-                <div className="image-container">
-                  <img
-                    src={val.photo}
-                    className="profile-photo"
-                    alt={`${val.name}`}
-                  />
-                  <span className="position">{val.position}</span>
-                </div>
-                <div className="name-container">
-                  <span>{val.name}</span>
-                </div>
-              </div>
-            </div>
+            <OurTeamCard key={idx} val={val} />
           ))}
         </div>
       </div>

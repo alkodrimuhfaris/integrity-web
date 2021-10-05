@@ -19,8 +19,8 @@ export default function ValuableClient() {
   ];
   return (
     <div ref={refScroll} className="valuable-client pt-2">
-      <div className="valuable-container py-5">
-        <div className="container">
+      <div className="valuable-container">
+        <div className="container pb-4">
           <div className="title">
             <div className="title-container valuable">
               <h1>Valuable Client</h1>

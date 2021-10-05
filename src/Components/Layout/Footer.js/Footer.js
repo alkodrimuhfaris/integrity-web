@@ -4,9 +4,24 @@ import {MdPhoneAndroid} from 'react-icons/md';
 import {IoMail} from 'react-icons/io5';
 import SvgIcon from '../../ComponentLayout/SvgIcon';
 import scrollToElement from '../../../Helpers/scrollToElement';
+import FooterContact from './FooterContact';
 
 export default function Footer() {
   const {refScroll} = scrollToElement({hashElement: '#contact'});
+  const contacts = [
+    {text: '+62 21 5701 505', href: 'tel:(+62)215701505', Icon: FaPhoneAlt},
+    {
+      text: '+62 899 766 5593',
+      href: 'tel:(+62)8997665593',
+      Icon: MdPhoneAndroid,
+    },
+    {
+      text: 'info@ptintegrity.co.id',
+      href: 'mailto:info@ptintegrity.co.id',
+      Icon: IoMail,
+    },
+  ];
+
   return (
     <div ref={refScroll} className="footer">
       <div className="container mb-4">
@@ -30,24 +45,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="row contact-container">
-          <div className="col-md-3 col-12 contact">
-            <a className="contact-link" href="tel:(+62)215701505">
-              <FaPhoneAlt className="contact-icon" />
-              <span>+62 21 5701 505</span>
-            </a>
-          </div>
-          <div className="col-md-3 col-12 contact">
-            <a className="contact-link" href="tel:(+62)8997665593">
-              <MdPhoneAndroid className="contact-icon" />
-              <span>+62 899 766 5593</span>
-            </a>
-          </div>
-          <div className="col-md-3 col-12 contact">
-            <a className="contact-link" href="mailto:info@ptintegrity.co.id">
-              <IoMail className="contact-icon" />
-              <span>info@ptintegrity.co.id</span>
-            </a>
-          </div>
+          {contacts.map((val, idx) => (
+            <FooterContact key={idx} val={val} />
+          ))}
         </div>
       </div>
       <div className="copyright">

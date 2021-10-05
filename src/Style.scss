@@ -191,6 +191,7 @@ body:not(.modal-open) {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        z-index: 80;
         width: 30px;
         height: 30px;
         outline: 0px solid #525252;
@@ -296,17 +297,38 @@ body:not(.modal-open) {
     height: 5rem;
     object-fit: contain;
   }
-  & .our-comp-image {
+
+  & .img-company-wrapper {
+    position: relative;
     width: 100%;
-    // height: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-    object-position: 0% 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    & .our-comp-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: 0% 100%;
+    }
   }
   & .company-description {
     padding: 7rem 1rem 1rem 1rem;
     p {
       font-size: 1.2rem;
+    }
+  }
+
+  & .our-company-cont {
+    display: flex;
+    & .img-company-container {
+      width: calc(100% * 4/12);
+    }
+    & .company-description {
+      width: calc(100% * 8/12);
     }
   }
 }
@@ -372,11 +394,14 @@ body:not(.modal-open) {
   position: relative;
   & .valuable-container {
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   & .client {
     height: auto;
@@ -387,8 +412,10 @@ body:not(.modal-open) {
     & .client-icons {
       width: auto;
       height: calc((617 / 1920) * (100vw - 10px) * 0.25);
+      max-height: 155.05px;
       &.bottom {
         height: calc((617 / 1920) * (100vw - 10px) * 0.15);
+        max-height: 93.03px;
       }
       margin: 2rem 1rem 0 1rem;
       &:nth-child(7) {
@@ -436,9 +463,62 @@ body:not(.modal-open) {
 }
 
 @media only screen and (max-width: 767px) {
+
+  
+  .our-team {
+    margin-bottom: 3rem;
+    & .team-profile {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      & .card-wrapper {
+        width: calc(100% / 2);
+        padding: 1rem;
+        & .profile-card {
+          width: 100%;
+          & .image-container {
+            width: 100%;
+            position: relative;
+            padding-top: calc((1 / 1) * 100%);
+            & .profile-photo {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            & .position {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              padding: 0.25rem 1rem;
+              background-color: #ef4136;
+              color: #fff;
+              font-weight: 700;
+            }
+          }
+          & .name-container {
+            background-color: #525252;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+              color: #fff;
+              font-weight: 600;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-@media only screen and (min-width: 786px) {
+@media only screen and (min-width: 788px) {
   body {
     &::-webkit-scrollbar {
       display: block !important;
@@ -459,10 +539,233 @@ body:not(.modal-open) {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .nav-bar {
+    z-index: 100;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: auto;
+    height: min-content;
+    padding: 25px 0;
+    background-color: #f7f7f7;
+    & .navbar-cont {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+
+      & .logo {
+        height: 3rem;
+        margin-right: 1.5rem;
+        object-fit: cover;
+      }
+    }
+    .menus {
+      padding: 0 !important;
+      margin: 0 !important;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      list-style: none;
+      & .contact {
+        padding-bottom: 0.5rem;
+        & .contact-wrapper {
+          color: #ef4136;
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: 700;
+        }
+      }
+      .menu {
+        position: relative;
+        transition: 0.3s ease;
+        &::after {
+          position: absolute;
+          transition: 0.2s ease;
+          bottom: 0px;
+          left: 50%;
+          transform: translateX(-50%);
+          content: "";
+          width: 0%;
+          height: 2px;
+          background-color: #ef4136;
+        }
+        &.selected,
+        &:hover {
+          transition: 0.3s ease;
+          & .item-menu {
+            color: #ef4136;
+          }
+          &::after {
+            width: 100%;
+            transition: 0.2s ease;
+          }
+        }
+        & .item-menu {
+          color: #707070;
+          display: block;
+          text-decoration: none;
+          padding: 0.5rem 0.25rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .our-company {
+    margin-bottom: 3rem;
+    & .typograph {
+      z-index: 50;
+      top: 0px;
+      transform: translateY(0%);
+      position: absolute;
+      width: 100%;
+      height: 5rem;
+      object-fit: contain;
+    }
+  
+    & .img-company-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+      & .our-comp-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        object-position: 0% 100%;
+      }
+    }
+    & .company-description {
+      padding: 1rem 1rem 1rem 1rem;
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  
+    & .our-company-cont {
+      display: flex;
+      position: relative;
+      & .img-company-container {
+        width: 100%;
+      }
+      & .company-description {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        background-color: rgba(112, 112, 112, 0.6);
+        p {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .our-team {
+    margin-bottom: 3rem;
+    & .team-profile {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      & .card-wrapper {
+        width: calc(100% / 2);
+      }
+    }
+  }
+
+  .valuable-client {
+    width: 100%;
+    max-height: 617px;
+    height: calc((617 / 1920) * (100vw));
+    background-image: url("/Assets/Images/valuable-client.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    & .valuable-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & .client {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+      & .client-icons {
+        width: auto;
+        height: calc((617 / 1920) * (100vw - 10px) * 0.25);
+        max-height: 155.05px;
+        &.bottom {
+          height: calc((617 / 1920) * (100vw - 10px) * 0.15);
+          max-height: 93.03px;
+        }
+        margin: 2rem 1rem 0 1rem;
+        &:nth-child(7) {
+          margin-right: 0rem !important;
+        }
+      }
+    }
+  }
+  
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .our-service {
+    margin-bottom: 3rem;
+    & .service-slider {
+      margin: 0.75rem 0rem 1rem 0rem;
+      & .container-slider {
+        & .slider-display {
+          width: 880px; // 970px - 60px - 30px inside container width minus slider btn and its distance
+          overflow: hidden;
+          & .slider-track {
+            & .slider {
+              width: calc(880px / 3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+ 
+  .our-company {
+    margin-bottom: 3rem;
+    & .typograph {
+      z-index: 50;
+      top: 12.5%;
+      transform: translateY(-50%);
+      position: absolute;
+      width: 100%;
+      height: 4rem;
+      object-fit: contain;
+    }
+    & .company-description {
+      padding: 6rem 1rem 1rem 1rem;
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1200px) {

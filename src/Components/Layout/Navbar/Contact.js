@@ -7,7 +7,7 @@ export default function Contact() {
     <div className="contact">
       <a className="contact-wrapper" href={`tel:${callCenter}`}>
         <FaPhoneAlt color="#ef4136" />
-        <span className="ml-3">021 570 1505</span>
+        <span className="ml-1 ml-xl-3">021 570 1505</span>
       </a>
     </div>
   );

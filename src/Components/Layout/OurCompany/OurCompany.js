@@ -10,20 +10,22 @@ export default function OurCompany() {
     <div ref={refScroll} className="our-company pt-2">
       <Title title="Company" />
       <div className="container">
-        <div className="row position-relative">
+        <div className="our-company-cont position-relative">
           <SvgIcon
             className={['typograph']}
             src="/assets/logo/handwriting.svg"
             alt="typography"
           />
-          <div className="col-4">
-            <img
-              className="our-comp-image"
-              src="/assets/photos/our-company.png"
-              alt="our-company"
-            />
+          <div className="img-company-container">
+            <div className="img-company-wrapper">
+              <img
+                className="our-comp-image"
+                src="/assets/photos/our-company.png"
+                alt="our-company"
+              />
+            </div>
           </div>
-          <div className="col-8 company-description">
+          <div className="company-description">
             <p>
               We believe that we’re only as good as the good we do. So, when
               people ask, “what’s different about Integrity?” the answer resides
