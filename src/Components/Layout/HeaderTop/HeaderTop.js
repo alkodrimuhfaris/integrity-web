@@ -2,6 +2,7 @@ import React from 'react';
 import randomEngine from '../../../Helpers/randomEngine';
 import scrollToElement from '../../../Helpers/scrollToElement';
 import Highlight from './Highlight';
+import InTouch from './InTouch';
 
 export default function HeaderTop() {
   const {refScroll} = scrollToElement({hashElement: '#home'});
@@ -23,11 +24,11 @@ export default function HeaderTop() {
 
   return (
     <div ref={refScroll} className="header-top">
-      <img
-        className="header-top-img"
-        src="/assets/photos/header-thumbnail.png"
-        alt="header-thumbnail"
-      />
+      <div className="in-touch">
+        <div className="container in-touch-wrapper">
+          <InTouch />
+        </div>
+      </div>
       <div className="highlights">
         <div className="container">
           <div className="row">
