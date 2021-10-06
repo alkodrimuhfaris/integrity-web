@@ -1,6 +1,7 @@
 import React from 'react';
 import randomEngine from '../../../Helpers/randomEngine';
 import scrollToElement from '../../../Helpers/scrollToElement';
+import Highlight from './Highlight';
 
 export default function HeaderTop() {
   const {refScroll} = scrollToElement({hashElement: '#home'});
@@ -31,19 +32,7 @@ export default function HeaderTop() {
         <div className="container">
           <div className="row">
             {highlight.map((val, idx) => (
-              <div key={idx} className="col-3 highlight">
-                <div className="number">
-                  <span>{val.number}</span>
-                </div>
-                <div className="words">
-                  <div className="top">
-                    <span>{val.topText}</span>
-                  </div>
-                  <div>
-                    <span>{val.bottom}</span>
-                  </div>
-                </div>
-              </div>
+              <Highlight key={idx} val={val} />
             ))}
           </div>
         </div>

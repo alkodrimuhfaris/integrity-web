@@ -2,7 +2,7 @@ import React from 'react';
 import {useLocation, Link} from 'react-router-dom';
 import Contact from './Contact';
 
-export default function Menu() {
+export default function Menu({open}) {
   const {hash} = useLocation();
 
   const menuList = [
@@ -14,7 +14,7 @@ export default function Menu() {
   ];
 
   return (
-    <ul className="menus">
+    <ul className={`menus ${open ? 'open' : ''}`}>
       {menuList.map((val, idx) => (
         <li
           className={`menu ${

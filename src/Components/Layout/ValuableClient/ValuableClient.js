@@ -20,7 +20,7 @@ export default function ValuableClient() {
   return (
     <div ref={refScroll} className="valuable-client pt-2">
       <div className="valuable-container">
-        <div className="container pb-4">
+        <div className="container pb-2 pb-md-4">
           <div className="title">
             <div className="title-container valuable">
               <h1>Valuable Client</h1>
