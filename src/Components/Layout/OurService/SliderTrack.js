@@ -1,6 +1,6 @@
 import React from 'react';
-import SvgIcon from '../../ComponentLayout/SvgIcon';
 import useComponentWidth from '../../../Helpers/useComponentWidth';
+import Slider from './Slider';
 
 export default function SliderTrack({
   transition,
@@ -25,26 +25,7 @@ export default function SliderTrack({
       className="slider-track"
     >
       {services.map((val, idx) => (
-        <div
-          style={{
-            left: `${wRef1 * idx}px`,
-          }}
-          key={idx}
-          ref={idx === 0 ? ref1 : null}
-          className="slider"
-        >
-          <div className="title-slide">
-            <div className="icon-wrapper">
-              <SvgIcon src={val.icon} className={['icon']} />
-            </div>
-            <div className="title-wrapper">
-              <span>{val.title}</span>
-            </div>
-          </div>
-          <div className="description">
-            <p>{val.desc}</p>
-          </div>
-        </div>
+        <Slider val={val} key={idx} idx={idx} ref1={ref1} wRef1={wRef1} />
       ))}
     </div>
   );

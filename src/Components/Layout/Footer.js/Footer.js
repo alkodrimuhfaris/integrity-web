@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="copyright">
-        <span>Copyright © 2021 PT.Integiry All Rights Reserved.</span>
+        <span>Copyright © 2021 PT.Integrity All Rights Reserved.</span>
       </div>
     </div>
   );
