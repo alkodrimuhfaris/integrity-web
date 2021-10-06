@@ -13,7 +13,9 @@ export default function InTouch() {
       </h1>
       <span className="in-touch-text">For every Business</span>
       <Link className="in-touch-btn" to={{hash: 'contact'}}>
-        <span>Get in touch</span> <BsArrowRight />
+        <span>
+          <span>Get in touch</span> <BsArrowRight />
+        </span>
       </Link>
     </div>
   );

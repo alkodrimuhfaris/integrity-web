@@ -1,4 +1,4 @@
-export const callCenter = '021 570 1505';
+export const callCenter = '(+62)215701505';
 export const services = [
   {
     icon: '/assets/service/01-audit.svg',

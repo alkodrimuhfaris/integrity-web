@@ -11,9 +11,9 @@ import Copyright from './Copyright';
 export default function Footer() {
   const {refScroll} = scrollToElement({hashElement: '#contact'});
   const contacts = [
-    {text: '+62 21 5701 505', href: 'tel:(+62)215701505', Icon: FaPhoneAlt},
+    {text: '(+62) 21 5701 505', href: 'tel:(+62)215701505', Icon: FaPhoneAlt},
     {
-      text: '+62 899 766 5593',
+      text: '(+62) 899 766 5593',
       href: 'tel:(+62)8997665593',
       Icon: MdPhoneAndroid,
     },

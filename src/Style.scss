@@ -194,20 +194,24 @@ body:not(.modal-open) {
 
 .in-touch-container {
   position: absolute;
-  top: 10%;
+  top: 50%;
+  transform: translateY(-50%);
   color: white;
   & .in-touch-text {
+    font-size: 1.5rem;
     font-weight: 400;
   }
   h1 {
     font-weight: 700;
+    font-size: 4rem !important;
     margin: 0.25rem 0rem !important;
   }
   & .in-touch-btn {
     margin-top: 1rem;
     display: block;
-    padding: 1rem 2rem;
-    width: 11.5rem;
+    text-align: center;
+    padding: 1.5rem 0rem;
+    width: 18rem;
     background-color: #ef4136;
     color: #fff;
   }
@@ -688,15 +692,17 @@ body:not(.modal-open) {
     color: white;
     & .in-touch-text {
       font-weight: 400;
+      font-size: 1rem;
     }
     h1 {
       font-weight: 700;
+      font-size: 3rem !important;
       margin: 0.25rem 0rem !important;
     }
     & .in-touch-btn {
       margin-top: 1rem;
       display: block;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem !important;
       width: 11.5rem;
       background-color: #ef4136;
       color: #fff;
@@ -958,9 +964,11 @@ body:not(.modal-open) {
     color: white;
     & .in-touch-text {
       font-weight: 400;
+      font-size: 1rem;
     }
     h1 {
       font-weight: 700;
+      font-size: 3rem !important;
       margin: 0.25rem 0rem !important;
     }
     & .in-touch-btn {
