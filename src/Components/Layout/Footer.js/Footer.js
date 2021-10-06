@@ -5,6 +5,8 @@ import {IoMail} from 'react-icons/io5';
 import SvgIcon from '../../ComponentLayout/SvgIcon';
 import scrollToElement from '../../../Helpers/scrollToElement';
 import FooterContact from './FooterContact';
+import Address from './Address';
+import Copyright from './Copyright';
 
 export default function Footer() {
   const {refScroll} = scrollToElement({hashElement: '#contact'});
@@ -22,27 +24,27 @@ export default function Footer() {
     },
   ];
 
+  const address = [
+    {
+      title: 'Office',
+      top: 'Jl. Bendungan Hilir Raya No.76',
+      bottom: 'Kota Jakarta Pusat, DKI Jakarta 10210',
+    },
+    {
+      title: 'Workshop',
+      top: 'Pesanggarahan Building',
+      bottom: ' Jl Lebak Bulus 3 No.50 Ruang 101 & 103',
+    },
+  ];
+
   return (
     <div ref={refScroll} className="footer">
       <div className="container mb-4">
         <SvgIcon src="/assets/logo/Logo.svg" className={['logo-footer']} />
         <div className="row address-container mb-3">
-          <div className="col-md-6 col-12 address">
-            <h3>Office</h3>
-            <p>
-              Jl. Bendungan Hilir Raya No.76
-              <br />
-              Kota Jakarta Pusat, DKI Jakarta 10210
-            </p>
-          </div>
-          <div className="col-md-6 col-12 address">
-            <h3>Workshop</h3>
-            <p>
-              Pesanggarahan Building
-              <br />
-              Jl Lebak Bulus 3 No.50 Ruang 101 & 103
-            </p>
-          </div>
+          {address.map((val, idx) => (
+            <Address key={idx} val={val} />
+          ))}
         </div>
         <div className="row contact-container">
           {contacts.map((val, idx) => (
@@ -50,9 +52,7 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="copyright">
-        <span>Copyright © 2021 PT.Integrity All Rights Reserved.</span>
-      </div>
+      <Copyright />
     </div>
   );
 }

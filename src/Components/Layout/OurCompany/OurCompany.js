@@ -6,6 +6,9 @@ import Title from '../../ComponentLayout/Title';
 export default function OurCompany() {
   const {refScroll} = scrollToElement({hashElement: '#about-us'});
 
+  const companyDesc =
+    'We believe that we’re only as good as the good we do. So, whenpeople ask, “what’s different about Integrity?” the answer residesin many specific examples of where we have helped our member firmclients, our people, and sections of society to achieve remarkablegoals, solve unravel intricate or make meaningful progress. Forus, good isn’t good enough. We aim to be the best at all that wedo—to help clients realize their ambitions; to make a positivedifference in society; and to maximize the success of our people.';
+
   return (
     <div ref={refScroll} className="our-company pt-2">
       <Title title="Company" />
@@ -26,16 +29,7 @@ export default function OurCompany() {
             </div>
           </div>
           <div className="company-description">
-            <p>
-              We believe that we’re only as good as the good we do. So, when
-              people ask, “what’s different about Integrity?” the answer resides
-              in many specific examples of where we have helped our member firm
-              clients, our people, and sections of society to achieve remarkable
-              goals, solve unravel intricate or make meaningful progress. For
-              us, good isn’t good enough. We aim to be the best at all that we
-              do—to help clients realize their ambitions; to make a positive
-              difference in society; and to maximize the success of our people.
-            </p>
+            <p>{companyDesc}</p>
           </div>
         </div>
       </div>

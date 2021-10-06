@@ -1,5 +1,6 @@
 import React from 'react';
 import scrollToElement from '../../../Helpers/scrollToElement';
+import Title from '../../ComponentLayout/Title';
 
 export default function ValuableClient() {
   const {refScroll} = scrollToElement({hashElement: '#client'});
@@ -21,11 +22,7 @@ export default function ValuableClient() {
     <div ref={refScroll} className="valuable-client pt-2">
       <div className="valuable-container">
         <div className="container pb-2 pb-md-4">
-          <div className="title">
-            <div className="title-container valuable">
-              <h1>Valuable Client</h1>
-            </div>
-          </div>
+          <Title valuableclient />
           <div className="client">
             {client1.map(({src, company}, idx) => (
               <img key={idx} src={src} className="client-icons" alt={company} />

@@ -1,6 +1,7 @@
 import React from 'react';
-import {useLocation, Link} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import Contact from './Contact';
+import MenuIndiv from './MenuIndiv';
 
 export default function Menu({open}) {
   const {hash} = useLocation();
@@ -16,25 +17,7 @@ export default function Menu({open}) {
   return (
     <ul className={`menus ${open ? 'open' : ''}`}>
       {menuList.map((val, idx) => (
-        <li
-          className={`menu ${
-            !hash && idx === 0
-              ? 'selected'
-              : hash === `#${val.hash}`
-              ? 'selected'
-              : ''
-          }`}
-          key={idx}
-        >
-          <Link
-            className="item-menu"
-            to={{
-              hash: val.hash,
-            }}
-          >
-            {val.name}
-          </Link>
-        </li>
+        <MenuIndiv hash={hash} val={val} idx={idx} />
       ))}
       <Contact />
     </ul>
