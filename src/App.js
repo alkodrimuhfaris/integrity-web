@@ -8,7 +8,11 @@ import './Style.scss';
 
 function App() {
   React.useState(() => {
-    ReactGa.initialize(process.env.REACT_APP_G_ANALYTICS);
+    ReactGa.initialize(process.env.REACT_APP_G_ANALYTICS, {
+      gaOptions: {
+        siteSpeedSampleRate: 100,
+      },
+    });
   }, []);
 
   return (
