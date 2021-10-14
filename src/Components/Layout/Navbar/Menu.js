@@ -17,7 +17,7 @@ export default function Menu({open}) {
   return (
     <ul className={`menus ${open ? 'open' : ''}`}>
       {menuList.map((val, idx) => (
-        <MenuIndiv hash={hash} val={val} idx={idx} />
+        <MenuIndiv key={idx} hash={hash} val={val} idx={idx} />
       ))}
       <Contact />
     </ul>
