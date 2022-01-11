@@ -8,7 +8,7 @@ export default function Menu({open}) {
 
   const menuList = [
     {name: 'Home', hash: 'home'},
-    {name: 'Service', hash: 'service'},
+    // {name: 'Service', hash: 'service'},
     {name: 'About Us', hash: 'about-us'},
     {name: 'Client', hash: 'client'},
     {name: 'Contact', hash: 'contact'},
