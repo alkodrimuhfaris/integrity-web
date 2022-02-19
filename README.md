@@ -21,5 +21,6 @@
 
 #HOW TO DEPLOY
 1. go to parent directory
-2. run `npm run build`
-3. run `pm2 serve build port 3001`
+2. run `npm install`
+3. run `npm run build`
+4. run `pm2 serve build port 3001 --name integrity-web`
