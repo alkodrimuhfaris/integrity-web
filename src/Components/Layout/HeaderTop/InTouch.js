@@ -5,13 +5,13 @@ import {Link} from 'react-router-dom';
 export default function InTouch() {
   return (
     <div className="in-touch-container">
-      <span className="in-touch-text">We Provide</span>
+      <span className="in-touch-text">We are</span>
       <h1>
-        Business
+        Creating
         <br />
-        Consultant
+        Value
       </h1>
-      <span className="in-touch-text">For every Business</span>
+      <span className="in-touch-text">For Business</span>
       <Link className="in-touch-btn" to={{hash: 'contact'}}>
         <span>
           <span>Get in touch</span> <BsArrowRight />
