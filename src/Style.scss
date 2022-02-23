@@ -200,6 +200,12 @@ body:not(.modal-open) {
   & .in-touch-text {
     font-size: 1.5rem;
     font-weight: 400;
+    &.bigger {
+      font-size: 1.8rem;
+    }
+    &.bold {
+      font-weight: 500;
+    }
   }
   h1 {
     font-weight: 700;
@@ -693,6 +699,12 @@ body:not(.modal-open) {
     & .in-touch-text {
       font-weight: 400;
       font-size: 1rem;
+      &.bigger {
+        font-size: 1.3rem;
+      }
+      &.bold {
+        font-weight: 500;
+      }
     }
     h1 {
       font-weight: 700;
@@ -965,6 +977,12 @@ body:not(.modal-open) {
     & .in-touch-text {
       font-weight: 400;
       font-size: 1rem;
+      &.bigger {
+        font-size: 1.3rem;
+      }
+      &.bold {
+        font-weight: 500;
+      }
     }
     h1 {
       font-weight: 700;
