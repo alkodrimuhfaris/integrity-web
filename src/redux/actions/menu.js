@@ -1,5 +1,5 @@
 export default {
-  getPokemon: (menu = 'Home') => ({
+  getMenu: (menu = 'Home') => ({
     type: 'CHANGE_MENU',
     payload: menu,
   }),

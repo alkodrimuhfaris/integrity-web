@@ -1,5 +1,5 @@
 import React from 'react';
-import useComponentWidth from '../../../Helpers/useComponentWidth';
+import useComponentWidth from '../../../../Hooks/useComponentWidth';
 import Slider from './Slider';
 
 export default function SliderTrack({

@@ -1,23 +1,27 @@
 import React from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Footer from './Layout/Footer.js/Footer';
-import HeaderTop from './Layout/HeaderTop/HeaderTop';
 import Navbar from './Layout/Navbar/Navbar';
-import OurCompany from './Layout/OurCompany/OurCompany';
-import OurService from './Layout/OurService/OurService';
-import OurTeam from './Layout/OurTeam/OurTeam';
-import ValuableClient from './Layout/ValuableClient/ValuableClient';
-import {serviceActive} from '../dto/services.json';
+import Home from './Layout/Home/Home';
+import BusinessConsultant from './Layout/Services/BusinessConsultant/BusinessConsultant';
+import MiningIndustry from './Layout/Services/MiningIndustry/MiningIndustry';
+import MarineIndustry from './Layout/Services/MarineIndustry/MarineIndustry';
+import Property from './Layout/Services/Property/Property';
 
 export default function Main() {
   return (
-    <div className="parent">
-      <Navbar />
-      <HeaderTop />
-      {serviceActive && <OurService />}
-      <OurCompany />
-      <OurTeam />
-      <ValuableClient />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="parent">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="business" element={<BusinessConsultant />} />
+          <Route path="mining" element={<MiningIndustry />} />
+          <Route path="marine" element={<MarineIndustry />} />
+          <Route path="property" element={<Property />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

@@ -508,6 +508,7 @@ body:not(.modal-open) {
   }
 }
 
+// for small device
 @media only screen and (max-width: 576px) {
   .parent {
     overflow: hidden;
@@ -582,6 +583,9 @@ body:not(.modal-open) {
         transition: 0.3s ease;
         width: 100%;
         padding: 0.5rem;
+        & .submenu {
+          list-style: none;
+        }
         &::after {
           position: absolute;
           transition: 0.2s ease;
@@ -852,6 +856,7 @@ body:not(.modal-open) {
   }
 }
 
+// for medium device (tab or ipad)
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .parent {
     overflow: hidden;
@@ -894,6 +899,22 @@ body:not(.modal-open) {
       right: calc(0px - (100vw - 540px)/2);
       transform: translateX(100%);
       transition: 0.3s ease;
+      & .submenu {
+        height: auto;
+        list-style: none;
+        display: list-item;
+        flex: none;
+        flex-direction: unset;
+        position: relative;
+        width: max-content;
+        & .item-submenu-wrapper {
+          & .item-submenu {
+            // width: max-content;
+            color: #707070;
+            display: block;
+          }
+        }
+      }
       &.open {
         transition: 0.3s ease;
         transform: translateX(0px);
@@ -1129,27 +1150,7 @@ body:not(.modal-open) {
   }
 }
 
-@media only screen and (min-width: 788px) {
-  body {
-    &::-webkit-scrollbar {
-      display: block !important;
-      background: #fff !important;
-      width: 7px; /* width of the entire scrollbar */
-      height: 7px; /* width of the entire scrollbar */
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #fff !important; /* color of the tracking area */
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #707070 !important; /* color of the scroll thumb */
-      border-radius: 20px; /* roundness of the scroll thumb */
-      border: 1.5px solid #fff;
-    }
-  }
-}
-
+// for smaller notebook
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .nav-bar {
     z-index: 100;
@@ -1194,6 +1195,9 @@ body:not(.modal-open) {
       .menu {
         position: relative;
         transition: 0.3s ease;
+        & .submenu {
+          list-style: none;
+        }
         &::after {
           position: absolute;
           transition: 0.2s ease;
@@ -1389,6 +1393,60 @@ body:not(.modal-open) {
         margin: 2rem 1rem 0 1rem;
         &:nth-child(7) {
           margin-right: 0rem !important;
+        }
+      }
+    }
+  }
+}
+
+// for pc
+@media only screen and (min-width: 788px) {
+  body {
+    &::-webkit-scrollbar {
+      display: block !important;
+      background: #fff !important;
+      width: 7px; /* width of the entire scrollbar */
+      height: 7px; /* width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff !important; /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #707070 !important; /* color of the scroll thumb */
+      border-radius: 20px; /* roundness of the scroll thumb */
+      border: 1.5px solid #fff;
+    }
+  }
+
+  .menu {
+    & .submenu {
+      overflow: hidden;
+      display: none;
+      transition: 3s;
+    }
+    &:hover .submenu, & .submenu.hover {
+      transition: 3s;
+      height: auto;
+      list-style: none;
+      display: flex;
+      flex: 1 1 0px;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: calc(0% - 8px - 60%);
+      width: max-content;
+      & .item-submenu-wrapper {
+        flex: content;
+        padding: 5px 8px;
+        margin: 3px 0;
+        border-radius: 5px;
+        background-color: #F5F5F5;
+        & .item-submenu {
+          // width: max-content;
+          color: #707070;
+          display: block;
         }
       }
     }

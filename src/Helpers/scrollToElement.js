@@ -1,6 +1,6 @@
 import React from 'react';
 import {useLocation} from 'react-router-dom';
-import useWindowDimensions from './useWindowDimension';
+import useWindowDimensions from '../Hooks/useWindowDimension';
 
 export default function scrollToElement({hashElement = ''}) {
   const refScroll = React.useRef(null);

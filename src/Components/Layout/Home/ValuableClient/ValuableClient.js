@@ -1,6 +1,6 @@
 import React from 'react';
-import scrollToElement from '../../../Helpers/scrollToElement';
-import Title from '../../ComponentLayout/Title';
+import scrollToElement from '../../../../Helpers/scrollToElement';
+import Title from '../../../ComponentLayout/Title';
 
 export default function ValuableClient() {
   const {refScroll} = scrollToElement({hashElement: '#client'});

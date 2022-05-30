@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../ComponentLayout/Title';
+import Title from '../../../ComponentLayout/Title';
 import OurTeamCard from './OurTeamCard';
 
 export default function OurTeam() {

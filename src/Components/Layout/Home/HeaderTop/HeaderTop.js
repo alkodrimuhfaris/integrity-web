@@ -1,6 +1,6 @@
 import React from 'react';
-import randomEngine from '../../../Helpers/randomEngine';
-import scrollToElement from '../../../Helpers/scrollToElement';
+import randomEngine from '../../../../Helpers/randomEngine';
+import scrollToElement from '../../../../Helpers/scrollToElement';
 import Highlight from './Highlight';
 import InTouch from './InTouch';
 

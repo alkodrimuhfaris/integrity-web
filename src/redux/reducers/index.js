@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import pokemon from './pokemon';
+import menu from './menu';
 
 export default combineReducers({
   // combine reducers here
-  pokemon,
+  menu,
 });

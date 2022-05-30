@@ -5,11 +5,20 @@ import MenuIndiv from './MenuIndiv';
 import {serviceActive} from '../../../dto/services.json';
 
 export default function Menu({open}) {
-  const {hash} = useLocation();
+  const {hash, pathname} = useLocation();
 
   const menuList = [
     {name: 'Home', hash: 'home'},
-    {name: 'Service', hash: 'service'},
+    {
+      name: 'Service',
+      hash: 'service',
+      subMenu: [
+        {path: '/business', name: 'Business Consultant'},
+        {path: '/mining', name: 'Mining Industry'},
+        {path: '/marine', name: 'Marine Industry'},
+        {path: '/property', name: 'Property'},
+      ],
+    },
     {name: 'About Us', hash: 'about-us'},
     {name: 'Client', hash: 'client'},
     {name: 'Contact', hash: 'contact'},
@@ -17,12 +26,15 @@ export default function Menu({open}) {
 
   return (
     <ul className={`menus ${open ? 'open' : ''}`}>
-      {menuList.map((val, idx) => {
-        if (!serviceActive && idx === 1) {
-          return null;
-        }
-        return <MenuIndiv key={idx} hash={hash} val={val} idx={idx} />;
-      })}
+      {menuList.map((val, idx) => (
+        <MenuIndiv
+          key={idx}
+          hash={hash}
+          pathname={pathname}
+          val={val}
+          idx={idx}
+        />
+      ))}
       <Contact />
     </ul>
   );

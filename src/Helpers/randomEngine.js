@@ -6,41 +6,51 @@ const formerH = [
 ];
 
 export default ({setHighlight = () => {}}) => {
-  const intvArr = [null, null, null, null];
+  // intervalArray to store inveterval id
+  const intervalArray = [null, null, null, null];
+  // timeoutArray to store timeout id
   const timeOutArr = [null, null, null];
-  for (let idx = 0; idx < intvArr.length; idx++) {
-    intvArr[idx] = setInterval(() => {
-      const rdm = `${Math.floor(Math.random() * 100)}`;
+  // this function is for setting interval of each one of the randomized number
+  // this will make each 
+  for (let idx = 0; idx < intervalArray.length; idx++) {
+    intervalArray[idx] = setInterval(() => {
+      const randomNumber = `${Math.floor(Math.random() * 100)}`;
       setHighlight((x) => {
         const y = x.map((val) => ({...val}));
-        y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+        y[idx].number =
+          randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
         return y;
       });
     }, 0.05 * 1000);
+
     timeOutArr[0] = setTimeout(() => {
-      clearInterval(intvArr[idx]);
-      intvArr[idx] = setInterval(() => {
-        const rdm = `${Math.floor(Math.random() * 100)}`;
+      clearInterval(intervalArray[idx]);
+      intervalArray[idx] = setInterval(() => {
+        const randomNumber = `${Math.floor(Math.random() * 100)}`;
         setHighlight((x) => {
           const y = x.map((val) => ({...val}));
-          y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+          y[idx].number =
+            randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
           return y;
         });
       }, 0.075 * 1000);
     }, (idx + 1) * 1000);
+
     timeOutArr[1] = setTimeout(() => {
-      clearInterval(intvArr[idx]);
-      intvArr[idx] = setInterval(() => {
-        const rdm = `${Math.floor(Math.random() * 100)}`;
+      clearInterval(intervalArray[idx]);
+      intervalArray[idx] = setInterval(() => {
+        const randomNumber = `${Math.floor(Math.random() * 100)}`;
         setHighlight((x) => {
           const y = x.map((val) => ({...val}));
-          y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+          y[idx].number =
+            randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
           return y;
         });
       }, 0.1 * 1000);
     }, (idx + 2) * 1000);
+
     timeOutArr[2] = setTimeout(() => {
-      clearInterval(intvArr[idx]);
+      clearInterval(intervalArray[idx]);
       setHighlight((x) => {
         const y = x.map((val) => ({...val}));
         y[idx].number = formerH[idx].number;
@@ -48,42 +58,46 @@ export default ({setHighlight = () => {}}) => {
       });
     }, (idx + 3) * 1000);
   }
+
   const intrvl = setInterval(() => {
-    intvArr.map((val) => clearInterval(val));
+    intervalArray.map((val) => clearInterval(val));
     timeOutArr.map((val) => clearTimeout(val));
-    for (let idx = 0; idx < intvArr.length; idx++) {
-      intvArr[idx] = setInterval(() => {
-        const rdm = `${Math.floor(Math.random() * 100)}`;
+    for (let idx = 0; idx < intervalArray.length; idx++) {
+      intervalArray[idx] = setInterval(() => {
+        const randomNumber = `${Math.floor(Math.random() * 100)}`;
         setHighlight((x) => {
           const y = x.map((val) => ({...val}));
-          y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+          y[idx].number =
+            randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
           return y;
         });
       }, 0.05 * 1000);
       timeOutArr[0] = setTimeout(() => {
-        clearInterval(intvArr[idx]);
-        intvArr[idx] = setInterval(() => {
-          const rdm = `${Math.floor(Math.random() * 100)}`;
+        clearInterval(intervalArray[idx]);
+        intervalArray[idx] = setInterval(() => {
+          const randomNumber = `${Math.floor(Math.random() * 100)}`;
           setHighlight((x) => {
             const y = x.map((val) => ({...val}));
-            y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+            y[idx].number =
+              randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
             return y;
           });
         }, 0.075 * 1000);
       }, (idx + 1) * 1000);
       timeOutArr[1] = setTimeout(() => {
-        clearInterval(intvArr[idx]);
-        intvArr[idx] = setInterval(() => {
-          const rdm = `${Math.floor(Math.random() * 100)}`;
+        clearInterval(intervalArray[idx]);
+        intervalArray[idx] = setInterval(() => {
+          const randomNumber = `${Math.floor(Math.random() * 100)}`;
           setHighlight((x) => {
             const y = x.map((val) => ({...val}));
-            y[idx].number = rdm.length === 1 ? `0${rdm}` : rdm;
+            y[idx].number =
+              randomNumber.length === 1 ? `0${randomNumber}` : randomNumber;
             return y;
           });
         }, 0.1 * 1000);
       }, (idx + 2) * 1000);
       timeOutArr[2] = setTimeout(() => {
-        clearInterval(intvArr[idx]);
+        clearInterval(intervalArray[idx]);
         setHighlight((x) => {
           const y = x.map((val) => ({...val}));
           y[idx].number = formerH[idx].number;
@@ -92,5 +106,5 @@ export default ({setHighlight = () => {}}) => {
       }, (idx + 3) * 1000);
     }
   }, 30 * 1000);
-  return [intrvl, intvArr, timeOutArr];
+  return [intrvl, intervalArray, timeOutArr];
 };

@@ -1,21 +1,17 @@
 import React from 'react';
-import {BrowserRouter, Redirect, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import Main from './Components/Main';
 import store from './redux/store';
 import './Style.scss';
 import Header from './Header/Header';
+import Navbar from './Components/Layout/Navbar/Navbar';
+import Footer from './Components/Layout/Footer.js/Footer';
 
 function App() {
   return (
     <Provider store={store}>
       <Header />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact component={Main} />
-          <Redirect from="/*" to="/" exact />
-        </Switch>
-      </BrowserRouter>
+      <Main />
     </Provider>
   );
 }

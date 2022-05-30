@@ -1,7 +1,7 @@
 import React from 'react';
-import scrollToElement from '../../../Helpers/scrollToElement';
-import SvgIcon from '../../ComponentLayout/SvgIcon';
-import Title from '../../ComponentLayout/Title';
+import scrollToElement from '../../../../Helpers/scrollToElement';
+import SvgIcon from '../../../ComponentLayout/SvgIcon';
+import Title from '../../../ComponentLayout/Title';
 
 export default function OurCompany() {
   const {refScroll} = scrollToElement({hashElement: '#about-us'});

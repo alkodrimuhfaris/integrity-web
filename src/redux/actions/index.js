@@ -1,5 +1,5 @@
-import pokemon from './pokemon';
+import menu from './menu';
 
 export default {
-  pokemon,
+  menu,
 };
