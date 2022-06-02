@@ -1,8 +1,8 @@
 import React from 'react';
 import {BsChevronDoubleRight, BsChevronDoubleLeft} from 'react-icons/bs';
 import SliderTrack from './SliderTrack';
-import {services} from '../../../../dto/global';
-import useCarousel from '../../../../Hooks/useCarousel';
+import {services} from '../../../../../dto/services.json';
+import useCarousel from '../../../../../Hooks/useCarousel';
 
 export default function ServiceSlider() {
   const {

@@ -1,5 +1,10 @@
 import React from 'react';
+import ServicePage from '../ServicePage/ServicePage';
 
 export default function MiningIndustry() {
-  return <div>MiningIndustry</div>;
+  return (
+    <ServicePage>
+      <div>MiningIndustry</div>
+    </ServicePage>
+  );
 }

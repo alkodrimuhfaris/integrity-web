@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcon from '../../../ComponentLayout/SvgIcon';
+import SvgIcon from '../../../../ComponentLayout/SvgIcon';
 
 export default function Slider({ref1, wRef1, idx, val}) {
   return (

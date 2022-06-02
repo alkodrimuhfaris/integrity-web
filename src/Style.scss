@@ -223,8 +223,30 @@ body:not(.modal-open) {
   }
 }
 
-.our-service {
+.service-home {
   margin-bottom: 3rem;
+  & .service-link-wrapper {
+    height: auto;
+    & .service-link-container {
+      position: relative;
+      display: block;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      & img {
+        position: absolute;
+        object-fit: contain;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  } 
+}
+
+.our-service {
+  padding-bottom: 3rem;
   & .service-slider {
     margin: 0.75rem 0rem 1rem 0rem;
     & .container-slider {
@@ -508,6 +530,43 @@ body:not(.modal-open) {
   }
 }
 
+.service-page {
+  background-color: #F7F7F7;
+}
+
+.service-card-wrapper {
+  overflow: visible;
+  padding: 1rem;
+  & .service-card {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    box-shadow: 0px 5px 10px 0px #0000000D;
+    background: #FFF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    & .icon-card-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5rem;
+      height: 4.2rem;
+      & .icon-card {
+        height: 3rem;
+        width: 3rem;
+        & path {
+          fill: #ef4136;
+        }
+      }
+    }
+    & .service-title-card {
+      font-size: 1.3rem;
+      font-weight: 200;
+      color: #707070;
+    }
+  }
+}
+
 // for small device
 @media only screen and (max-width: 576px) {
   .parent {
@@ -726,7 +785,7 @@ body:not(.modal-open) {
   }
 
   .our-service {
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {
@@ -1021,7 +1080,7 @@ body:not(.modal-open) {
   }
 
   .our-service {
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {
@@ -1271,7 +1330,7 @@ body:not(.modal-open) {
   }
 
   .our-service {
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {
@@ -1451,6 +1510,106 @@ body:not(.modal-open) {
       }
     }
   }
+
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      padding: 0 0 2rem 2rem;
+      & .service-link-container {
+        & .service-link-text-container {
+          position: absolute;
+          display: flex;
+          flex: content;
+          padding: 0.25rem 0.5rem;
+          z-index: 3;
+          background-color: #ef4136;
+          transition: 0.3s;
+          &::after {
+            position: absolute;
+            display: block;
+          }
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 2rem;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+        }
+        & img {
+          transition: 0.3s;
+        } 
+        &:hover, &:active, &:visited, &:focus {
+          background-color: rgba(239, 65, 54, 0);
+          padding: 0.25rem 0.5rem;
+          width: 100%;
+          height: 100%;
+          transition: 0.3s;
+          &::after {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(239, 65, 54, 0.5);
+            transition: 0.3s;
+          }
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 3rem;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+          & img {
+            transform: translate(-50%, -50%) scale(1.1);
+            transition: 0.3s;
+          } 
+        } 
+      }
+    }
+  }
+
+  .service-header {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 40.25rem;
+    & img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+    & .service-header-title-container {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      & .service-header-title-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        background-color: #ef4136;
+        & .service-header-title {
+          padding: 0rem 3rem !important;
+          margin: 0 !important;
+          color: white;
+          font-size: 5rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  // each page of service
+  .business-consultant {
+    & .main-text {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #000;
+      margin: 0 !important;
+      padding: 3rem 0;
+    }
+  }
 }
 
 .burger-wrapper {
@@ -1508,7 +1667,7 @@ body:not(.modal-open) {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .our-service {
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {

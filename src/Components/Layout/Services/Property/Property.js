@@ -1,5 +1,10 @@
 import React from 'react';
+import ServicePage from '../ServicePage/ServicePage';
 
 export default function Property() {
-  return <div>Property</div>;
+  return (
+    <ServicePage>
+      <div>Property</div>;
+    </ServicePage>
+  );
 }
