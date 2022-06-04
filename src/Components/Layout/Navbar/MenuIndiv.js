@@ -5,13 +5,15 @@ import useClickOutsideComponent from '../../../Hooks/useClickOutsideComponent';
 import SubMenu from './SubMenu';
 
 const setSelectedMenu = (hash, pathname, idx, val) => {
-  // if in home
+  // detect if user is in the home
   if (!hash && idx === 0 && pathname === '/') {
     return 'selected';
   }
+  // detect if user is clicking another hash
   if (hash === `#${val.hash}`) {
     return 'selected';
   }
+  // detect if user is in service page
   if (val.hash === 'service' && pathname !== '/') {
     return 'selected';
   }
