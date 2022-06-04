@@ -7,11 +7,15 @@ import BusinessConsultant from './Layout/Services/BusinessConsultant/BusinessCon
 import MiningIndustry from './Layout/Services/MiningIndustry/MiningIndustry';
 import MarineIndustry from './Layout/Services/MarineIndustry/MarineIndustry';
 import Property from './Layout/Services/Property/Property';
+import RestoreScroll from './ComponentLayout/RestoreScroll';
+import ScrollToTop from './ComponentLayout/ScrollToTop';
 
 export default function Main() {
   return (
     <BrowserRouter>
       <div className="parent">
+        <RestoreScroll />
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

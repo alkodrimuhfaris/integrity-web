@@ -1,29 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-function useOutsideClick(callBack = () => {}, ref) {
-  React.useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event) {
-      if (ref.current && !ref.current.contains(event.target)) {
-        callBack();
-      }
-    }
-    // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [ref]);
-}
+import useClickOutsideComponent from '../../../Hooks/useClickOutsideComponent';
 
 export default function MenuIndiv({hash, pathname, idx, val}) {
   const {name, subMenu} = val;
   const ref = React.useRef(null);
   const [openSubMenu, setOpenSubMenu] = React.useState(false);
+  const useClickOutside = useClickOutsideComponent();
 
   // open service submenu
   React.useEffect(() => {
@@ -33,7 +16,7 @@ export default function MenuIndiv({hash, pathname, idx, val}) {
   }, [hash]);
 
   // close service submenu
-  useOutsideClick(() => {
+  useClickOutside(() => {
     if (val.hash === 'service') {
       setOpenSubMenu(false);
     }

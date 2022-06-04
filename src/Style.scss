@@ -66,6 +66,33 @@ body:not(.modal-open) {
   }
 }
 
+
+.scroll-to-top-button {
+  position: fixed;
+  z-index: 99;
+  bottom: 3rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border-radius: 300px;
+  background-color: #00000000;
+  border: none;
+  opacity: 0.5;
+  transition: 0.2s;
+  &:hover {
+    opacity: 1;
+    transition: 0.2s;
+  }
+  .scroll-to-top {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}
+
+
 .nav-bar {
   z-index: 100;
   position: -webkit-sticky !important;
@@ -230,7 +257,6 @@ body:not(.modal-open) {
     & .service-link-container {
       position: relative;
       display: block;
-      height: 200px;
       overflow: hidden;
       border-radius: 10px;
       & img {
@@ -539,32 +565,84 @@ body:not(.modal-open) {
   padding: 1rem;
   & .service-card {
     width: 100%;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 0.25rem;
     box-shadow: 0px 5px 10px 0px #0000000D;
     background: #FFF;
     border-radius: 10px;
     display: flex;
     align-items: center;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+    }
     & .icon-card-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 5rem;
-      height: 4.2rem;
+      width: 4rem;
+      height: 3rem;
       & .icon-card {
-        height: 3rem;
-        width: 3rem;
+        height: 2.5rem;
+        width: 2.5rem;
         & path {
           fill: #ef4136;
         }
       }
     }
     & .service-title-card {
-      font-size: 1.3rem;
-      font-weight: 200;
+      font-size: 1.2rem;
+      font-weight: 400;
       color: #707070;
     }
   }
+}
+
+.property-partners {
+  padding: 1rem 0;
+  & h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #454240;
+  }
+  & img {
+    width: auto;
+    height: 70px;
+    margin: 1rem 2rem;
+  }
+}
+
+.marine-industry-detail {
+  margin: 0 !important;
+  padding: 2rem 0;
+  border-bottom: 1px solid #E4E4E4;
+  &:last-child {
+    border-bottom: none !important;
+  }
+  height: max-content;
+  & img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+  }
+  & h1 {
+    color: #454240;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1rem 0 !important;
+  }
+  & p {
+    color: #000;
+    font-size: 0.9rem;
+  }
+}
+
+.vertical-centering {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 // for small device
@@ -574,6 +652,16 @@ body:not(.modal-open) {
     position: relative;
     padding-top: calc(4rem - 1px);
   }
+
+  .scroll-to-top-button {
+    bottom: 2rem;
+    right: 1.5rem;
+    .scroll-to-top {
+      width: 2.3rem;
+      height: 2.3rem;
+    }
+  }
+
   .nav-bar {
     z-index: 100;
     // position: -webkit-sticky;
@@ -643,7 +731,21 @@ body:not(.modal-open) {
         width: 100%;
         padding: 0.5rem;
         & .submenu {
+          height: auto;
           list-style: none;
+          display: list-item;
+          flex: none;
+          flex-direction: unset;
+          position: relative;
+          width: max-content;
+          & .item-submenu-wrapper {
+            margin: 0.5rem 0;
+            & .item-submenu {
+              // width: max-content;
+              color: #707070;
+              display: block;
+            }
+          }
         }
         &::after {
           position: absolute;
@@ -715,6 +817,7 @@ body:not(.modal-open) {
   }
 
   .header-top {
+    margin-bottom: 2rem !important;
     & .in-touch {
       width: 100%;
       height: 20rem;
@@ -785,7 +888,7 @@ body:not(.modal-open) {
   }
 
   .our-service {
-    padding-bottom: 3rem;
+    padding-bottom: 1.5rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {
@@ -797,6 +900,37 @@ body:not(.modal-open) {
               width: 330px;
             }
           }
+        }
+      }
+    }
+  }
+
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      padding: 0 15px 0.5rem 15px;
+      & .service-link-container {
+        height: 3rem;
+        & .service-link-text-container {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          z-index: 3;
+          background-color: rgba(239, 65, 54, 0.5);
+          transition: 0.3s;
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+        }
+        & img {
+          transform: translate(-50%, -62.5%);
         }
       }
     }
@@ -876,6 +1010,7 @@ body:not(.modal-open) {
     width: 100%;
     max-height: 300px;
     height: calc((300 / 540) * (100vw));
+    // background-color: rgba(82, 82, 82, 0.5);
     background-image: url("/Assets/Images/valuable-client.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -913,6 +1048,131 @@ body:not(.modal-open) {
       }
     }
   }
+
+  .service-card-wrapper {
+    overflow: visible;
+    padding: 1rem;
+    & .service-card {
+      width: 100%;
+      padding: 0.25rem 0.125rem;
+      box-shadow: 0px 5px 10px 0px #0000000D;
+      background: #FFF;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.02);
+        transition: 0.2s;
+      }
+      & .icon-card-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 2.5rem;
+        & .icon-card {
+          height: 2rem;
+          width: 2rem;
+          & path {
+            fill: #ef4136;
+          }
+        }
+      }
+      & .service-title-card {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #707070;
+      }
+    }
+  }
+
+  .property-partners {
+    padding: 0.5rem 0;
+    & h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #454240;
+    }
+    & img {
+      width: auto;
+      height: 30px;
+      margin: 0.5rem 1rem;
+    }
+  }
+
+  .service-header {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 12rem;
+    & img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+    & .service-header-title-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      background-color: rgba(239, 65, 54, 0.5);
+      & .service-header-title-flex-container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      & .service-header-title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;  
+        & .service-header-title {
+          padding: 0rem 2rem !important;
+          margin: 0 !important;
+          color: white;
+          font-size: 3rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .service-main-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0 !important;
+    padding: 1rem 0;
+  }
+
+  .mining-component-wrapper {
+    height: max-content;
+    & .map-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    & .mining-component-easy-access-wrapper {
+      text-align: center;
+    }
+    & h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #454240;
+    }
+    & p {
+      color: #000;
+      font-size: 0.8rem;
+    }
+    & .mining-component {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 // for medium device (tab or ipad)
@@ -921,6 +1181,15 @@ body:not(.modal-open) {
     overflow: hidden;
     position: relative;
     padding-top: calc(4rem - 1px);
+  }
+  
+  .scroll-to-top-button {
+    bottom: 2rem;
+    right: 2rem;
+    .scroll-to-top {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
   }
   
   .nav-bar {
@@ -967,6 +1236,7 @@ body:not(.modal-open) {
         position: relative;
         width: max-content;
         & .item-submenu-wrapper {
+          margin: 0.5rem 0;
           & .item-submenu {
             // width: max-content;
             color: #707070;
@@ -1042,6 +1312,7 @@ body:not(.modal-open) {
 
   
   .header-top {
+    margin-bottom: 2rem !important;
     & .in-touch {
       width: 100%;
       height: 20rem;
@@ -1080,7 +1351,7 @@ body:not(.modal-open) {
   }
 
   .our-service {
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
     & .service-slider {
       margin: 0.75rem 0rem 1rem 0rem;
       & .container-slider {
@@ -1165,12 +1436,12 @@ body:not(.modal-open) {
       }
     }
   }
-
   
   .valuable-client {
     width: 100%;
     max-height: 300px;
     height: calc((300 / 540) * (100vw));
+    // background-color: rgba(82, 82, 82, 0.5);
     background-image: url("/Assets/Images/valuable-client.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -1203,6 +1474,162 @@ body:not(.modal-open) {
         margin: 1rem 0.5rem 0 0.5rem;
         &:nth-child(7) {
           margin-right: 0rem !important;
+        }
+      }
+    }
+  }
+
+  .service-card-wrapper {
+    overflow: visible;
+    padding: 1rem;
+    & .service-card {
+      width: 100%;
+      padding: 0.25rem 0.125rem;
+      box-shadow: 0px 5px 10px 0px #0000000D;
+      background: #FFF;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.02);
+        transition: 0.2s;
+      }
+      & .icon-card-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 3rem;
+        & .icon-card {
+          height: 2.5rem;
+          width: 2.5rem;
+          & path {
+            fill: #ef4136;
+          }
+        }
+      }
+      & .service-title-card {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #707070;
+      }
+    }
+  }
+
+  .service-header {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 18rem;
+    & img {
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+    & .service-header-title-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      background-color: rgba(239, 65, 54, 0.5);
+      & .service-header-title-flex-container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+      & .service-header-title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;  
+        & .service-header-title {
+          padding: 0rem 2rem !important;
+          margin: 0 !important;
+          color: white;
+          font-size: 3rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .property-partners {
+    padding: 0.5rem 0;
+    & h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #454240;
+    }
+    & img {
+      width: auto;
+      height: 40px;
+      margin: 0.5rem 1rem;
+    }
+  }
+
+  .service-main-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0 !important;
+    padding: 1.5rem 0;
+  }
+
+  .mining-component-wrapper {
+    height: max-content;
+    & .map-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    & .mining-component-easy-access-wrapper {
+      text-align: center;
+    }
+    & h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #454240;
+    }
+    & p {
+      color: #000;
+      font-size: 0.9rem;
+    }
+    & .mining-component {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      padding: 0 0 2rem 0;
+      & .service-link-container {
+        height: 4rem;
+        & .service-link-text-container {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          z-index: 3;
+          background-color: rgba(239, 65, 54, 0.5);
+          transition: 0.3s;
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 1.8rem;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+        }
+        & img {
+          transform: translate(-50%, -62.5%);
         }
       }
     }
@@ -1420,6 +1847,7 @@ body:not(.modal-open) {
     width: 100%;
     max-height: 400px;
     height: calc((400 / 960) * (100vw));
+    // background-color: rgba(82, 82, 82, 0.5);
     background-image: url("/Assets/Images/valuable-client.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -1456,10 +1884,47 @@ body:not(.modal-open) {
       }
     }
   }
+
+  .service-header {
+    height: 30rem !important;
+  }
+
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      &:nth-child(odd) {
+        padding: 0 1rem 2rem 0;
+      }
+      &:nth-child(even) {
+        padding: 0 0 2rem 1rem;
+      }
+      & .service-link-container {
+        height: 110.25px;
+        & .service-link-text-container {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          z-index: 3;
+          background-color: rgba(239, 65, 54, 0.5);
+          transition: 0.3s;
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 1.8rem;
+            padding: 0 !important;
+            margin: 0 !important;
+          }
+        } 
+      }
+    }
+  }
 }
 
 // for pc
-@media only screen and (min-width: 788px) {
+@media only screen and (min-width: 768px) {
   body {
     &::-webkit-scrollbar {
       display: block !important;
@@ -1511,69 +1976,12 @@ body:not(.modal-open) {
     }
   }
 
-  .service-home {
-    margin-bottom: 3rem;
-    & .service-link-wrapper {
-      padding: 0 0 2rem 2rem;
-      & .service-link-container {
-        & .service-link-text-container {
-          position: absolute;
-          display: flex;
-          flex: content;
-          padding: 0.25rem 0.5rem;
-          z-index: 3;
-          background-color: #ef4136;
-          transition: 0.3s;
-          &::after {
-            position: absolute;
-            display: block;
-          }
-          & .service-link-text {
-            font-weight: 700;
-            color: white;
-            font-size: 2rem;
-            padding: 0 !important;
-            margin: 0 !important;
-          }
-        }
-        & img {
-          transition: 0.3s;
-        } 
-        &:hover, &:active, &:visited, &:focus {
-          background-color: rgba(239, 65, 54, 0);
-          padding: 0.25rem 0.5rem;
-          width: 100%;
-          height: 100%;
-          transition: 0.3s;
-          &::after {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(239, 65, 54, 0.5);
-            transition: 0.3s;
-          }
-          & .service-link-text {
-            font-weight: 700;
-            color: white;
-            font-size: 3rem;
-            padding: 0 !important;
-            margin: 0 !important;
-          }
-          & img {
-            transform: translate(-50%, -50%) scale(1.1);
-            transition: 0.3s;
-          } 
-        } 
-      }
-    }
-  }
-
   .service-header {
     position: relative;
     display: block;
     overflow: hidden;
     width: 100%;
-    height: 40.25rem;
+    height: 38rem;
     & img {
       width: 100%;
       object-fit: cover;
@@ -1590,10 +1998,10 @@ body:not(.modal-open) {
         width: max-content;
         background-color: #ef4136;
         & .service-header-title {
-          padding: 0rem 3rem !important;
+          padding: 0rem 2rem !important;
           margin: 0 !important;
           color: white;
-          font-size: 5rem;
+          font-size: 4rem;
           font-weight: 700;
         }
       }
@@ -1601,13 +2009,28 @@ body:not(.modal-open) {
   }
 
   // each page of service
-  .business-consultant {
-    & .main-text {
+  .service-main-text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0 !important;
+    padding: 2rem 0;
+  }
+
+  .mining-component-wrapper {
+    height: max-content;
+    & .map-image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    & h1 {
       font-size: 2rem;
-      font-weight: 300;
+      font-weight: 700;
+      color: #454240;
+    }
+    & p {
       color: #000;
-      margin: 0 !important;
-      padding: 3rem 0;
     }
   }
 }
@@ -1702,9 +2125,148 @@ body:not(.modal-open) {
       }
     }
   }
+
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      &:nth-child(odd) {
+        padding: 0 1rem 2rem 0;
+      }
+      &:nth-child(even) {
+        padding: 0 0 2rem 1rem;
+      }
+      & .service-link-container {
+        height: 148.7px;
+        & .service-link-text-container {
+          position: absolute;
+          top: calc(100% - 10px);
+          left: 10px;
+          transform: translate(0, -100%);
+          display: flex;
+          flex: content;
+          width: max-content;
+          height: auto;
+          min-width: 0%;
+          min-height: 0%;
+          align-items: center;
+          justify-content: center;
+          padding: 0.25rem 0.5rem;
+          z-index: 3;
+          background-color: #ef4136;
+          transition: 0.3s;
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 1.8rem;
+            padding: 0 !important;
+            margin: 0 !important;
+            transition: 0.3s;
+          }
+        }
+        & img {
+          transition: 0.3s;
+        } 
+        &:hover, &:active, &:visited, &:focus {
+          & .service-link-text-container {
+            background-color: rgba(239, 65, 54, 0.5);
+            padding: 0.25rem 0.5rem;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            transform: translate(0, 0%);
+            min-height: 100%;
+            min-width: 100%;
+            transition: 0.3s;
+            & .service-link-text {
+              font-weight: 700;
+              color: white;
+              font-size: 2.5rem;
+              padding: 0 !important;
+              margin: 0 !important;
+              transition: 0.3s;
+            }
+          }
+          & img {
+            transform: translate(-50%, -50%) scale(1.1);
+            transition: 0.3s;
+          } 
+        } 
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1200px) {
+  .service-home {
+    margin-bottom: 3rem;
+    & .service-link-wrapper {
+      &:nth-child(odd) {
+        padding: 0 1rem 2rem 0;
+      }
+      &:nth-child(even) {
+        padding: 0 0 2rem 1rem;
+      }
+      & .service-link-container {
+        height: 177.5px;
+        & .service-link-text-container {
+          position: absolute;
+          top: calc(100% - 10px);
+          left: 10px;
+          transform: translate(0, -100%);
+          display: flex;
+          flex: content;
+          width: max-content;
+          height: auto;
+          min-width: 0%;
+          min-height: 0%;
+          align-items: center;
+          justify-content: center;
+          padding: 0.25rem 0.5rem;
+          z-index: 3;
+          background-color: #ef4136;
+          transition: 0.3s;
+          & .service-link-text {
+            font-weight: 700;
+            color: white;
+            font-size: 2rem;
+            padding: 0 !important;
+            margin: 0 !important;
+            transition: 0.3s;
+          }
+        }
+        & img {
+          transition: 0.3s;
+        } 
+        &:hover, &:active, &:visited, &:focus {
+          & .service-link-text-container {
+            background-color: rgba(239, 65, 54, 0.5);
+            padding: 0.25rem 0.5rem;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            transform: translate(0, 0%);
+            min-height: 100%;
+            min-width: 100%;
+            transition: 0.3s;
+            & .service-link-text {
+              font-weight: 700;
+              color: white;
+              font-size: 3rem;
+              padding: 0 !important;
+              margin: 0 !important;
+              transition: 0.3s;
+            }
+          }
+          & img {
+            transform: translate(-50%, -50%) scale(1.1);
+            transition: 0.3s;
+          } 
+        } 
+      }
+    }
+  }
 }
 
 .container-slider {

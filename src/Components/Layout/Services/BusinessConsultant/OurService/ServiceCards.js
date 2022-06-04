@@ -16,7 +16,7 @@ export default function ServiceCards() {
 
 function ServiceCard({icon, title}) {
   return (
-    <Col className="service-card-wrapper" xs={12} xl={6}>
+    <Col className="service-card-wrapper" xs={12} lg={6}>
       <div className="service-card">
         <div className="icon-card-wrapper">
           <SvgIcon src={icon} className={['icon-card']} />

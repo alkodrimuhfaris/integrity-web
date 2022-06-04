@@ -11,9 +11,11 @@ export default function scrollToElement({hashElement = ''}) {
     if (hashElement !== '' && hash === hashElement && refScroll.current) {
       const yOffset = sm ? -60 : -90; // adapting to height of navbar on sm and non sm in pixel
       const y =
-        refScroll.current.getBoundingClientRect().top +
-        window.pageYOffset +
-        yOffset;
+        hash === '#home'
+          ? 0
+          : refScroll.current.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset;
       window.scrollTo({top: y, behavior: 'smooth'});
     }
   }, [hash, hashElement]);

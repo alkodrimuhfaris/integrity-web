@@ -1,4 +1,5 @@
 import React from 'react';
+import ServiceMainText from '../Components/ServiceMainText';
 import ServicePage from '../ServicePage/ServicePage';
 import OurService from './OurService/OurService';
 
@@ -8,7 +9,7 @@ const businessConsultantText =
 export default function BusinessConsultant() {
   return (
     <ServicePage className="business-consultant">
-      <p className="main-text">{businessConsultantText}</p>
+      <ServiceMainText>{businessConsultantText}</ServiceMainText>
       <OurService />
     </ServicePage>
   );

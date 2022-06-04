@@ -15,7 +15,7 @@ export default function ServiceHeader({image, title}) {
 const TitleServiceHeader = ({title}) => {
   const titles = title.split(' ');
   return (
-    <Container>
+    <Container className="service-header-title-flex-container">
       <div className="service-header-title-wrapper">
         {titles.map((_title, idx) => (
           <span key={idx} className="service-header-title">

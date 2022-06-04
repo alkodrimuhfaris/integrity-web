@@ -2,7 +2,6 @@ import React from 'react';
 import {useLocation} from 'react-router-dom';
 import Contact from './Contact';
 import MenuIndiv from './MenuIndiv';
-import {serviceActive} from '../../../dto/services.json';
 
 export default function Menu({open}) {
   const {hash, pathname} = useLocation();

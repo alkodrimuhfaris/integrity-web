@@ -20,7 +20,7 @@ export default function ServicePage({children, className}) {
   }, [pathname, servicesHome]);
 
   return (
-    <div className="service-page">
+    <div className="service-page pb-1 pb-md-4">
       <ServiceHeader image={headerProp.image} title={headerProp.title} />
       <Container className={className}>{children}</Container>
     </div>
