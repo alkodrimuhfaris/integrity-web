@@ -11,7 +11,7 @@ export default ({setHighlight = () => {}}) => {
   // timeoutArray to store timeout id
   const timeOutArr = [null, null, null];
   // this function is for setting interval of each one of the randomized number
-  // this will make each 
+  // this will make in each interval, time to generate number is changing
   for (let idx = 0; idx < intervalArray.length; idx++) {
     intervalArray[idx] = setInterval(() => {
       const randomNumber = `${Math.floor(Math.random() * 100)}`;

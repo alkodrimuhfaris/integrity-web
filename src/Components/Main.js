@@ -9,23 +9,26 @@ import MarineIndustry from './Layout/Services/MarineIndustry/MarineIndustry';
 import Property from './Layout/Services/Property/Property';
 import RestoreScroll from './ComponentLayout/RestoreScroll';
 import ScrollToTop from './ComponentLayout/ScrollToTop';
+import HashProvider from '../Context/HashProvider';
 
 export default function Main() {
   return (
     <BrowserRouter>
-      <div className="parent">
-        <RestoreScroll />
-        <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="business" element={<BusinessConsultant />} />
-          <Route path="mining" element={<MiningIndustry />} />
-          <Route path="marine" element={<MarineIndustry />} />
-          <Route path="property" element={<Property />} />
-        </Routes>
-        <Footer />
-      </div>
+      <HashProvider>
+        <div className="parent">
+          <RestoreScroll />
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="business" element={<BusinessConsultant />} />
+            <Route path="mining" element={<MiningIndustry />} />
+            <Route path="marine" element={<MarineIndustry />} />
+            <Route path="property" element={<Property />} />
+          </Routes>
+          <Footer />
+        </div>
+      </HashProvider>
     </BrowserRouter>
   );
 }

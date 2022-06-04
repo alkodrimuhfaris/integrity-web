@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <div ref={menuRef} className="nav-bar">
       <div className="container navbar-cont">
-        <Link to="/">
+        <Link to={{pathname: '/', hash: '#home'}}>
           <img className="logo" src="/assets/logo/Logo.svg" alt="logo" />
         </Link>
         <Menu open={open} />
