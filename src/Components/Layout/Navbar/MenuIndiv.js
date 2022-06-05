@@ -74,16 +74,11 @@ export default function MenuIndiv({hash, pathname, idx, val}) {
       className={`menu ${setSelectedMenu(selectedMenu, pathname, idx, val)}`}
       key={idx}
     >
-      <button
-        type="button"
-        ref={ref}
-        className="item-menu"
-        onClick={toggleSubMenu}
-      >
+      <button type="button" className="item-menu" onClick={toggleSubMenu}>
         {name}
       </button>
       {!subMenu ? null : (
-        <ul className={`submenu ${openSubMenu ? 'hover' : ''}`}>
+        <ul ref={ref} className={`submenu ${openSubMenu ? 'hover' : ''}`}>
           {subMenu.map((submenuVal, index) => {
             const {path, name: subMenuName} = submenuVal;
             return <SubMenu key={index} path={path} name={subMenuName} />;
