@@ -5,6 +5,11 @@ import React from 'react';
  * first parameter is callback, and second parameter is ref from targeted component
  */
 export default () =>
+  /**
+   *
+   * @param {Function} callBack callback function to call whenever user is clicked outside component
+   * @param {React.MutableRefObject} ref refence object
+   */
   (callBack = () => {}, ref) => {
     React.useEffect(() => {
       /**

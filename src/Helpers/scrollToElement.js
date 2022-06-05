@@ -3,9 +3,8 @@ import {useLocation} from 'react-router-dom';
 import {HashContext} from '../Context/HashProvider';
 import useWindowDimensions from '../Hooks/useWindowDimension';
 
-const scrollTo = (hashElement, hash, refScroll, sm) => {
+const scrollTo = (hashElement, hash, refScroll, yOffset) => {
   if (hashElement !== '' && hash === hashElement && refScroll.current) {
-    const yOffset = sm ? -60 : -90; // adapting to height of navbar on sm and non sm in pixel
     const y =
       hash === '#home'
         ? 0
@@ -18,12 +17,26 @@ const scrollTo = (hashElement, hash, refScroll, sm) => {
 
 export default function scrollToElement({hashElement = ''}) {
   const refScroll = React.useRef(null);
-  const {hash} = useLocation();
-  const {sm} = useWindowDimensions();
-  const {hash: hashContext, setHash} = React.useContext(HashContext);
+  const {hash, pathname} = useLocation();
+  const {height, sm} = useWindowDimensions();
+  const [yOffset, setYOffset] = React.useState(sm ? -60 : -90);
+  const [detectedHeight, setDetectedHeight] = React.useState(height + yOffset);
+  const {
+    hash: hashContext,
+    setHash,
+    setSelectedMenu,
+  } = React.useContext(HashContext);
+  // specify offset to adapting to height of navbar on sm and non sm in pixel
 
   React.useEffect(() => {
-    scrollTo(hashElement, hash, refScroll, sm);
+    const yOffsetNew = sm ? -60 : -90;
+    const detectedHeightNew = height + yOffsetNew;
+    setYOffset(yOffsetNew);
+    setDetectedHeight(detectedHeightNew);
+  }, [height, sm]);
+
+  React.useEffect(() => {
+    scrollTo(hashElement, hash, refScroll, yOffset);
   }, [hash, hashElement]);
 
   React.useEffect(() => {
@@ -32,6 +45,33 @@ export default function scrollToElement({hashElement = ''}) {
       setHash(null);
     }
   }, [hashContext, hashElement]);
+
+  // to detect if element is on view point
+  const onScroll = () => {
+    if (pathname !== '/') {
+      return;
+    }
+    if (!refScroll.current) {
+      return;
+    }
+    const {top, bottom} = refScroll.current.getBoundingClientRect();
+    const detectBottom = bottom + yOffset;
+    const detectTop = top + detectedHeight;
+    if (hashElement === '#contact') {
+      if (detectBottom <= window.innerHeight) {
+        setSelectedMenu('contact');
+        return;
+      }
+    }
+    if (detectTop >= 0 && detectTop <= window.innerHeight) {
+      setSelectedMenu(hashElement.replace('#', ''));
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('scroll', onScroll, true);
+    return () => document.removeEventListener('scroll', onScroll, true);
+  }, []);
 
   return {refScroll};
 }

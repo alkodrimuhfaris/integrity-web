@@ -1955,12 +1955,9 @@ body:not(.modal-open) {
   .menu {
     & .submenu {
       overflow: hidden;
-      display: none;
-      transition: 3s;
-    }
-    &:hover .submenu, & .submenu.hover {
-      transition: 3s;
+      transition: 0.3s;
       height: auto;
+      max-height: 0;
       list-style: none;
       display: flex;
       flex: 1 1 0px;
@@ -1969,6 +1966,7 @@ body:not(.modal-open) {
       top: 100%;
       left: calc(0% - 8px - 60%);
       width: max-content;
+      max-width: 0;
       & .item-submenu-wrapper {
         flex: content;
         padding: 5px 8px;
@@ -1979,8 +1977,14 @@ body:not(.modal-open) {
           // width: max-content;
           color: #707070;
           display: block;
+          white-space: nowrap;
         }
       }
+    }
+    &:hover .submenu, & .submenu.hover {
+      transition: 0.3s;
+      max-height: 160px;
+      max-width: 217.54px;
     }
   }
 

@@ -4,17 +4,20 @@ import {HashContext} from '../../../Context/HashProvider';
 import useClickOutsideComponent from '../../../Hooks/useClickOutsideComponent';
 import SubMenu from './SubMenu';
 
-const setSelectedMenu = (hash, pathname, idx, val) => {
+const setSelectedMenu = (selectedMenu, pathname, idx, val) => {
+  // detect if user is in service page
+  if (pathname !== '/') {
+    if (val.hash === 'service') {
+      return 'selected';
+    }
+    return '';
+  }
   // detect if user is in the home
-  if (!hash && idx === 0 && pathname === '/') {
+  if (!selectedMenu && idx === 0) {
     return 'selected';
   }
   // detect if user is clicking another hash
-  if (hash === `#${val.hash}`) {
-    return 'selected';
-  }
-  // detect if user is in service page
-  if (val.hash === 'service' && pathname !== '/') {
+  if (selectedMenu === val.hash) {
     return 'selected';
   }
   return '';
@@ -27,6 +30,8 @@ export default function MenuIndiv({hash, pathname, idx, val}) {
   const useClickOutside = useClickOutsideComponent();
   const navigate = useNavigate();
   const {setHash} = React.useContext(HashContext);
+  const {selectedMenu, setSelectedMenu: setMenu} =
+    React.useContext(HashContext);
 
   // open service submenu
   React.useEffect(() => {
@@ -39,13 +44,19 @@ export default function MenuIndiv({hash, pathname, idx, val}) {
   useClickOutside(() => {
     if (val.hash === 'service') {
       setOpenSubMenu(false);
+      setMenu((prevMenu) => {
+        if (prevMenu === 'service') {
+          return null;
+        }
+        return prevMenu;
+      });
     }
   }, ref);
 
   const toggleSubMenu = () => {
+    setMenu(val.hash);
     if (val.hash === 'service') {
       setOpenSubMenu((openSubMenuBefore) => !openSubMenuBefore);
-      return null;
     }
     if (`#${val.hash}` !== hash) {
       navigate({
@@ -60,7 +71,7 @@ export default function MenuIndiv({hash, pathname, idx, val}) {
 
   return (
     <li
-      className={`menu ${setSelectedMenu(hash, pathname, idx, val)}`}
+      className={`menu ${setSelectedMenu(selectedMenu, pathname, idx, val)}`}
       key={idx}
     >
       <button
