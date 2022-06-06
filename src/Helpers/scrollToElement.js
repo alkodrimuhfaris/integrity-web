@@ -30,16 +30,22 @@ export default function scrollToElement({hashElement = ''}) {
 
   React.useEffect(() => {
     const yOffsetNew = sm ? -60 : -90;
-    const detectedHeightNew = height - yOffset * 2;
+    const detectedHeightNew = height + yOffset;
     setYOffset(yOffsetNew);
     setDetectedHeight(detectedHeightNew);
   }, [height, sm]);
 
   React.useEffect(() => {
+    if (hashElement === '#service') {
+      return;
+    }
     scrollTo(hashElement, hash, refScroll, yOffset);
   }, [hash, hashElement]);
 
   React.useEffect(() => {
+    if (hashElement === '#service') {
+      return;
+    }
     if (hashContext) {
       scrollTo(hashElement, hashContext, refScroll, sm);
       setHash(null);
@@ -55,16 +61,19 @@ export default function scrollToElement({hashElement = ''}) {
       return;
     }
     const {top, bottom} = refScroll.current.getBoundingClientRect();
-    const detectBottom = bottom + yOffset / 2;
-    const detectTop = top + detectedHeight;
+    const {innerHeight} = window;
+    const checkTopAndBottom = top >= 0 && bottom >= 0;
+    const detectedTop = top + detectedHeight;
+    const detectScreenShowingComponent =
+      detectedTop >= innerHeight && bottom <= innerHeight;
     if (hashElement === '#contact') {
-      if (detectBottom <= window.innerHeight) {
+      if (bottom + yOffset <= window.innerHeight) {
         setSelectedMenu('contact');
         return;
       }
       return;
     }
-    if (detectTop >= 0 && detectTop <= window.innerHeight) {
+    if (checkTopAndBottom && detectScreenShowingComponent) {
       setSelectedMenu(hashElement.replace('#', ''));
     }
   };
