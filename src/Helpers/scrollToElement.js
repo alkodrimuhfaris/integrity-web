@@ -20,7 +20,6 @@ export default function scrollToElement({hashElement = ''}) {
   const {hash, pathname} = useLocation();
   const {height, sm} = useWindowDimensions();
   const [yOffset, setYOffset] = React.useState(sm ? -60 : -90);
-  const [detectedHeight, setDetectedHeight] = React.useState(height + yOffset);
   const {
     hash: hashContext,
     setHash,
@@ -30,9 +29,7 @@ export default function scrollToElement({hashElement = ''}) {
 
   React.useEffect(() => {
     const yOffsetNew = sm ? -60 : -90;
-    const detectedHeightNew = height + yOffset;
     setYOffset(yOffsetNew);
-    setDetectedHeight(detectedHeightNew);
   }, [height, sm]);
 
   React.useEffect(() => {
@@ -63,11 +60,10 @@ export default function scrollToElement({hashElement = ''}) {
     const {top, bottom} = refScroll.current.getBoundingClientRect();
     const {innerHeight} = window;
     const checkTopAndBottom = top >= 0 && bottom >= 0;
-    const detectedTop = top + detectedHeight;
     const detectScreenShowingComponent =
-      detectedTop >= innerHeight && bottom <= innerHeight;
+      top + yOffset / 2 <= innerHeight && bottom + yOffset / 2 <= innerHeight;
     if (hashElement === '#contact') {
-      if (bottom + yOffset <= window.innerHeight) {
+      if (bottom + yOffset <= innerHeight) {
         setSelectedMenu('contact');
         return;
       }

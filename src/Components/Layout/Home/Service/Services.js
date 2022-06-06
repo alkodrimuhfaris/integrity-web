@@ -1,10 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {servicesHome} from '../../../../dto/services.json';
+import scrollToElement from '../../../../Helpers/scrollToElement';
 
 export default function Services() {
+  const {refScroll} = scrollToElement({hashElement: '#service'});
   return (
-    <div className="service-home container">
+    <div ref={refScroll} className="service-home container">
       <div className="row">
         {servicesHome.map((val, idx) => (
           <Service
