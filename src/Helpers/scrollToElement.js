@@ -30,7 +30,7 @@ export default function scrollToElement({hashElement = ''}) {
 
   React.useEffect(() => {
     const yOffsetNew = sm ? -60 : -90;
-    const detectedHeightNew = height + yOffset;
+    const detectedHeightNew = height + yOffset * 2;
     setYOffset(yOffsetNew);
     setDetectedHeight(detectedHeightNew);
   }, [height, sm]);
@@ -55,7 +55,7 @@ export default function scrollToElement({hashElement = ''}) {
       return;
     }
     const {top, bottom} = refScroll.current.getBoundingClientRect();
-    const detectBottom = bottom + yOffset;
+    const detectBottom = bottom + yOffset / 2;
     const detectTop = top + detectedHeight;
     if (hashElement === '#contact') {
       if (detectBottom <= window.innerHeight) {
