@@ -62,6 +62,7 @@ export default function scrollToElement({hashElement = ''}) {
         setSelectedMenu('contact');
         return;
       }
+      return;
     }
     if (detectTop >= 0 && detectTop <= window.innerHeight) {
       setSelectedMenu(hashElement.replace('#', ''));
