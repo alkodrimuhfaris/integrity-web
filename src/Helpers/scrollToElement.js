@@ -30,7 +30,7 @@ export default function scrollToElement({hashElement = ''}) {
 
   React.useEffect(() => {
     const yOffsetNew = sm ? -60 : -90;
-    const detectedHeightNew = height + yOffset * 2;
+    const detectedHeightNew = height - yOffset * 2;
     setYOffset(yOffsetNew);
     setDetectedHeight(detectedHeightNew);
   }, [height, sm]);
