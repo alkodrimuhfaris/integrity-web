@@ -10,7 +10,7 @@ export default function OurTeam() {
       photo: '/assets/photos/andika-lukmana.png',
     },
     {
-      name: 'Rachmat Wahyudi.SE,MBA,AK.CA',
+      name: 'Rachmat Wahyudi',
       position: 'CEO',
       photo: '/assets/photos/rachmad-wahyudi.png',
     },
