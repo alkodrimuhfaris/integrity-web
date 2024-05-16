@@ -30,11 +30,11 @@ export default function Footer() {
       top: 'Jl. Bendungan Hilir Raya No.76',
       bottom: 'Kota Jakarta Pusat, DKI Jakarta 10210',
     },
-    {
-      title: 'Workshop',
-      top: 'Pesanggarahan Building',
-      bottom: ' Jl Lebak Bulus 3 No.50 Ruang 101 & 103',
-    },
+    // {
+    //   title: 'Workshop',
+    //   top: 'Pesanggarahan Building',
+    //   bottom: ' Jl Lebak Bulus 3 No.50 Ruang 101 & 103',
+    // },
   ];
 
   return (
