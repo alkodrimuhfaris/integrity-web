@@ -27,8 +27,10 @@ export default function Footer() {
   const address = [
     {
       title: 'Office',
-      top: 'Jl. Bendungan Hilir Raya No.76',
-      bottom: 'Kota Jakarta Pusat, DKI Jakarta 10210',
+      top: 'Pesanggarahan Building',
+      bottom: ' Jl Lebak Bulus 3 No.50 Ruang 101 & 103',
+      // top: 'Jl. Bendungan Hilir Raya No.76',
+      // bottom: 'Kota Jakarta Pusat, DKI Jakarta 10210',
     },
     // {
     //   title: 'Workshop',
